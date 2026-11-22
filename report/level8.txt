@@ -1,0 +1,17 @@
+== ps ==
+NAME                    IMAGE               COMMAND                  SERVICE   CREATED         STATUS                   PORTS
+hw_3_template-app-1     hw_3_template-app   "python app.py"          app       6 minutes ago   Up 6 minutes (healthy)   0.0.0.0:8080->8000/tcp, [::]:8080->8000/tcp
+hw_3_template-redis-1   redis:7.4-alpine    "docker-entrypoint.s…"   redis     6 minutes ago   Up 2 minutes (healthy)   6379/tcp
+== GET / ==
+{"greeting": "Привет из Compose!", "count": 5, "hostname": "bef9956b6365", "storage": "redis"}
+ Container hw_3_template-redis-1 Stopping 
+ Container hw_3_template-redis-1 Stopped 
+== redis stopped ==
+healthz: 200
+readyz: 503
+increment: 503
+ Container hw_3_template-redis-1 Starting 
+ Container hw_3_template-redis-1 Started 
+== redis started ==
+{"greeting": "Привет из Compose!", "count": 5, "hostname": "bef9956b6365", "storage": "redis"}
+{"greeting": "Привет из Compose!", "count": 6, "hostname": "bef9956b6365", "storage": "redis"}

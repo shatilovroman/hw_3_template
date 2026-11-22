@@ -1,0 +1,112 @@
+ Image hwcheck_66553-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 516B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 283B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 1.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 76B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#5 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 127B done
+#6 DONE 0.0s
+
+#7 [5/6] COPY app/ .
+#7 CACHED
+
+#8 [2/6] WORKDIR /srv/app
+#8 CACHED
+
+#9 [3/6] COPY app/requirements.txt .
+#9 CACHED
+
+#10 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#10 CACHED
+
+#11 [6/6] RUN mkdir -p /data
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:2ab41ae1782af51ddd973effa9e7cd1a9f650c4661c006b9ff1256d1dae94f0c 0.0s done
+#12 exporting config sha256:9447b0f285e09291af4a6a1fecbe303f998460a9e0383f0b1291da1d5853742c 0.0s done
+#12 exporting attestation manifest sha256:b721831e15b685206929c1769e76d40f2513277b29c4f6deff4cefb1cde9c1d6 0.0s done
+#12 exporting manifest list sha256:45f1c792fe18db90e33222845b11b245f39e63d93fd58c269b86d586f4c38028 0.0s done
+#12 naming to docker.io/library/hwcheck_66553-app:latest done
+#12 unpacking to docker.io/library/hwcheck_66553-app:latest 0.0s done
+#12 DONE 0.1s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image hwcheck_66553-app Built 
+ Network hwcheck_66553_default Creating 
+ Network hwcheck_66553_default Creating 
+ Volume hwcheck_66553_redis-data Creating 
+ Volume hwcheck_66553_redis-data Creating 
+ Volume hwcheck_66553_redis-data Created 
+ Volume hwcheck_66553_redis-data Created 
+ Network hwcheck_66553_default Created 
+ Network hwcheck_66553_default Created 
+ Container hwcheck_66553-redis-1 Creating 
+ Container hwcheck_66553-redis-1 Created 
+ Container hwcheck_66553-app-1 Creating 
+ Container hwcheck_66553-app-1 Created 
+ Container hwcheck_66553-redis-1 Starting 
+ Container hwcheck_66553-redis-1 Started 
+ Container hwcheck_66553-redis-1 Waiting 
+ Container hwcheck_66553-redis-1 Healthy 
+ Container hwcheck_66553-app-1 Starting 
+ Container hwcheck_66553-app-1 Started 
+ Container hwcheck_66553-app-1 Waiting 
+ Container hwcheck_66553-redis-1 Waiting 
+ Container hwcheck_66553-redis-1 Healthy 
+ Container hwcheck_66553-app-1 Healthy 
+OK: начальный счётчик = 0
+OK: счётчик после 5 инкрементов = 5
+ Container hwcheck_66553-app-1 Recreate 
+ Container hwcheck_66553-app-1 Recreated 
+ Container hwcheck_66553-app-1 Starting 
+ Container hwcheck_66553-app-1 Started 
+ Container hwcheck_66553-app-1 Waiting 
+ Container hwcheck_66553-app-1 Healthy 
+OK: счётчик после пересоздания app = 5
+ Container hwcheck_66553-redis-1 Stopping 
+ Container hwcheck_66553-redis-1 Stopped 
+OK: healthz при остановленном Redis = 200
+OK: readyz при остановленном Redis = 503
+OK: POST /increment при остановленном Redis = 503
+ Container hwcheck_66553-redis-1 Starting 
+ Container hwcheck_66553-redis-1 Started 
+OK: счётчик после возвращения Redis = 5
+OK: POST после восстановления = 200
+OK: счётчик N+1 = 6
+ Container hwcheck_66553-app-1 Stopping 
+ Container hwcheck_66553-redis-1 Stopping 
+ Container hwcheck_66553-redis-1 Stopped 
+ Container hwcheck_66553-app-1 Stopped 
+OK: резервная копия /home/exerator2000/hw_3_template/backups/redis-data-20261122-173719.tar
+ Container hwcheck_66553-app-1 Stopping 
+ Container hwcheck_66553-redis-1 Stopping 
+ Container hwcheck_66553-app-1 Stopped 
+ Container hwcheck_66553-app-1 Removing 
+ Container hwcheck_66553-redis-1 Stopped 
+ Container hwcheck_66553-redis-1 Removing 
+ Container hwcheck_66553-redis-1 Removed 
+ Container hwcheck_66553-app-1 Removed 
+ Volume hwcheck_66553_redis-data Removing 
+ Network hwcheck_66553_default Removing 
+ Volume hwcheck_66553_redis-data Removed 
+ Network hwcheck_66553_default Removed 
+OK: проект удалён
+ВСЕ ПРОВЕРКИ ПРОЙДЕНЫ

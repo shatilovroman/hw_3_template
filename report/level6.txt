@@ -1,0 +1,5 @@
+NAME                  IMAGE               COMMAND           SERVICE   CREATED          STATUS          PORTS
+hw_3_template-app-1   hw_3_template-app   "python app.py"   app       49 seconds ago   Up 49 seconds   0.0.0.0:8080->8000/tcp, [::]:8080->8000/tcp
+DRIVER    VOLUME NAME
+local     hw_3_template_app-data
+{"greeting": "Привет из Compose!", "count": 3, "hostname": "6cbc17c49fba", "storage": "sqlite"}
